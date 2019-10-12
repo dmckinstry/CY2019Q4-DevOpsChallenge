@@ -14,13 +14,20 @@
     1.  Connect the GitHub repo to the Azure DevOps challenge project
     1.  Setup branch protections to require PRs and at least on reviewer
     1.  Have two other team members (not the repo owner) test the access and branch protections by updating the README.md file
+1.  Create an Action workflow to provision Azure resources
+    1.  Review the existing ARM Templates in the deployment folder
+    1.  Setup Azure security stuff as appropriate and store the key in GitHub secrets
+    1.  Set the trigger to filter on changes to the deployment folder
 
 
-1.  GitHub security
+
+1.  Secure the application
     1.  Enable security alerts
-    1.  Review security alert results
+    1.  Review security alerts (may take a few minutes?)
     1.  Enable automatic security fixes
-    1.  Review pull requests 
+    1.  Review and implement recommended fixes
+
+
 
 Do we want to force Terraform provisioning of the environment?  Do we have a good starter template?
 Should we cause a build action to trigger a deploy action?
@@ -29,8 +36,11 @@ Should we do deployment slots?
 Should we add a CURL test to the deployment?  Other UI tests?
 We should probably have a separate manually triggered for deploy to production.
 Do we want to do a container push to GPR?
+Note: There is an existing 
 
-1.  Create an Action workflow to provision Azure
-    1. Setup Azure security stuff as appropriate
-    1. Figure out security key stuff needed for CLI - need reference
-    1. Store key as a GithUB secret in the forked repo
+
+# References
+- Azure Actions: https://github.com/azure/actions
+- Deploy node to web apps: https://github.com/Azure/actions-workflow-samples/blob/master/node.js-webapp-on-azure.yml
+- My sample action to provision an Azure Resource Group (with docs)
+
