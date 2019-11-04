@@ -21,11 +21,7 @@
     
 1.  Create a continuous integration workflow using GitHub Actions to verify PRs
     1.  TODO: Provide install/test/... guidance
-    
-1.  Create an Action workflow to provision Azure resources
-    1.  Create Infrastructure-As-Code to provision the Azure resources described above. Use your choice of Ansible, ARM templates, Terraform or Pulumi. Commit the files into the deployment folder. 
-    1.  Setup Azure security stuff as appropriate and store the key in GitHub secrets
-    1.  Set the trigger to filter on changes to the deployment folder
+    1.  Update the GitHub Branch Protection on Master to require this workflow
 
 1.  Secure the application
     1.  Enable security alerts
@@ -33,17 +29,16 @@
     1.  Enable automatic security fixes
     1.  Review and implement recommended fixes
 
+1.  Create an Action workflow to provision Azure resources
+    1.  Create Infrastructure-As-Code to provision the Azure resources described above. Use your choice of Ansible, ARM templates, Terraform or Pulumi. Commit the files into the deployment folder. 
+    1.  Setup Azure security stuff as appropriate and store the key in GitHub secrets
+    1.  Set the trigger to filter on changes to the deployment folder
 
-
-Do we want to force Terraform provisioning of the environment?  Do we have a good starter template?
-Should we cause a build action to trigger a deploy action?
-Should we do a pipelines with environments?
-Should we do deployment slots?
-Should we add a CURL test to the deployment?  Other UI tests?
-We should probably have a separate manually triggered for deploy to production.
-Do we want to do a container push to GPR?
-Note: There is an existing 
-
+1.  Dockerize the app
+    1.  Create a Dockerfile to package the application
+    1.  Provision a new Web App for Linux (Containers) against your exisitng app plan
+    1.  Update the infrastructure-as-code for your new Web App and verify it in the existing workflow
+    1.  Create a workflow to publish the resulting container to the container registry of your choice (GitHub Package Repository, Azure Container Registry, Dockerhub, ...); following the successful push to the container registry, deploy it to the new Web App
 
 # References
 - Azure Actions: https://github.com/azure/actions
