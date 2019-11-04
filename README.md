@@ -5,21 +5,27 @@
 1.  Prepare the Challenge DevOps project (from a template)
     1.  Grant other users permissions to the project
     1.  Review the work items and plan
+    
 1.  Prepare an Azure subscription
     1.  Create a resource group for the challenge in an existing subscription
     1.  Setup appropriate team permissions for the resource group
+    1.  Create an Azure Web App for Linux using the Node.JS 10 runtime
+    1.  TODO: Other resources?
+    
 1.  Prepare a challenge GitHub repo
-    1.  Create a public repo on GitHub - *The org/user must have the GitHub Actions preview enabled*
+    1.  Create a public repo on GitHub
     1.  Grant appropriate permissions to your team
     1.  Connect the GitHub repo to the Azure DevOps challenge project
     1.  Setup branch protections to require PRs and at least on reviewer
     1.  Have two other team members (not the repo owner) test the access and branch protections by updating the README.md file
+    
+1.  Create a continuous integration workflow using GitHub Actions to verify PRs
+    1.  TODO: Provide install/test/... guidance
+    
 1.  Create an Action workflow to provision Azure resources
-    1.  Review the existing ARM Templates in the deployment folder
+    1.  Create Infrastructure-As-Code to provision the Azure resources described above. Use your choice of Ansible, ARM templates, Terraform or Pulumi. Commit the files into the deployment folder. 
     1.  Setup Azure security stuff as appropriate and store the key in GitHub secrets
     1.  Set the trigger to filter on changes to the deployment folder
-
-
 
 1.  Secure the application
     1.  Enable security alerts
